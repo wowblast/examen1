@@ -1,12 +1,22 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="nav"> 
+      <users></users>
     </div>
-    <router-view/>
   </div>
 </template>
+
+
+<script>
+import Test from './components/Test'
+import Users from './components/Users'
+export default {
+  name: 'app',
+  components: {
+    Test,Users
+  }
+}
+</script>
 
 <style>
 #app {
