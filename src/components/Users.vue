@@ -1,10 +1,10 @@
 <template>
   <div class="users">
-    <h1>Users</h1>
+    <h1>Lista de usuarios</h1>
     <form v-on:submit="addUser">
-      <input type="text" v-model="newUser.name" placeholder="ingrese nombre">
+      <input type="text" v-model="newUser.name" placeholder="ingrese nombre" data-newUser.name>
       <br>
-      <input type="text" v-model="newUser.email" placeholder="ingrese email">
+      <input type="text" v-model="newUser.email" placeholder="ingrese email" data-newUser.email>
       <br>
       <input type="submit" value="Submit">
     </form>
@@ -16,6 +16,8 @@
           {{user.name}}:{{user.email}}
           <button v-on:click="deleteUser(user)">x</button>
         </span>
+         <p  class='alert' v-if="user.contacted">Usuario contactado</p>
+
       </li>
     </ul>
   </div>
@@ -58,9 +60,9 @@ export default {
     deleteUser: function (user) {
       this.users.splice(this.users.indexOf(user), 1)
     },
-    allUsers: function(){
-    return this.users.length
-  }
+    allUsers: function () {
+      return this.users.length
+    }
   }
 }
 </script>
@@ -68,5 +70,8 @@ export default {
 <style scoped>
 .contacted {
   text-decoration: line-through;
+}
+.alert {
+  color :red
 }
 </style>

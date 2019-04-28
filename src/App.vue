@@ -8,12 +8,11 @@
 
 
 <script>
-import Test from './components/Test'
 import Users from './components/Users'
 export default {
   name: 'app',
   components: {
-    Test,Users
+    Users
   }
 }
 </script>
@@ -35,7 +34,4 @@ export default {
   color: #2c3e50;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>

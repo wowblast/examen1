@@ -12,21 +12,29 @@ describe('Users.vue', function () {
 
   beforeEach(function () {
     wrapper = shallowMount(Users, {
-      propsData: {
-        msg
-      },
-      user: {
-        name: 'JHON',
-        email: 'jfr142012@gmail.com',
-        contanted: false
-      }
+      propsData: { msg }
     })
   })
-  it('test method', () => {
-    expect(wrapper.vm.deleteUser({ name: 'Jhon', email: 'jfr142012@gmail.com', contanted: false })).to.equal(5)
+
+  it('Usuarios iniciales', () => {
+    expect(wrapper.vm.allUsers()).to.equal(3)
   })
 
-  it('dom with class hello world exist', () => {
-    expect(wrapper.find('.users').exists())
+  it('eliminar usuario', () => {
+    expect(wrapper.vm.allUsers()).to.equal(3)
+    const button = wrapper.find('button')
+    button.trigger('click')
+    expect(wrapper.vm.allUsers()).to.equal(2)
+  })
+  it('Usuario añadido', () => {
+    wrapper.find('form').trigger('submit')
+
+    expect(wrapper.vm.allUsers()).to.equal(4)
+  })
+  it('botones por usuario', () => {
+    expect(wrapper.findAll('button').length).equals(3)
+  })
+  it('formulario mostrado', () => {
+    expect(wrapper.contains('form')).equals(true)
   })
 })
