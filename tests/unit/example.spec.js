@@ -37,4 +37,9 @@ describe('Users.vue', function () {
   it('formulario mostrado', () => {
     expect(wrapper.contains('form')).equals(true)
   })
+  it('Se muestra el parrafo de usuario contactado', async () => {
+    const myCheckbox = wrapper.find('.toggle')
+    myCheckbox.trigger('click')
+    expect(wrapper.contains('.alert')).equals(true)
+  })
 })

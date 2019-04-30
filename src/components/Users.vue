@@ -6,7 +6,7 @@
       <br>
       <input type="text" v-model="newUser.email" placeholder="ingrese email" data-newUser.email>
       <br>
-      <input type="submit" value="Submit">
+      <input type="submit" value="Ingresar">
     </form>
     <h2>Numero de usuarios {{allUsers()}}</h2>
     <ul>
